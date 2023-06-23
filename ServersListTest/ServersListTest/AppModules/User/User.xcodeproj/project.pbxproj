@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C71482B2A45F359007EEDD2 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71482A2A45F359007EEDD2 /* LoginForm.swift */; };
 		8CADA7692A45D0AC0005490C /* User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CADA7602A45D0AC0005490C /* User.framework */; };
 		8CADA76E2A45D0AC0005490C /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CADA76D2A45D0AC0005490C /* UserTests.swift */; };
 		8CADA76F2A45D0AC0005490C /* User.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CADA7632A45D0AC0005490C /* User.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -24,6 +25,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C71482A2A45F359007EEDD2 /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
 		8CADA7602A45D0AC0005490C /* User.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = User.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CADA7632A45D0AC0005490C /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		8CADA7682A45D0AC0005490C /* UserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C7148292A45F34A007EEDD2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8C71482A2A45F359007EEDD2 /* LoginForm.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		8CADA7562A45D0AC0005490C = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +81,7 @@
 		8CADA7622A45D0AC0005490C /* User */ = {
 			isa = PBXGroup;
 			children = (
+				8C7148292A45F34A007EEDD2 /* Login */,
 				8CADA7632A45D0AC0005490C /* User.h */,
 				8CADA82B2A45D5E50005490C /* SessionManager.swift */,
 			);
@@ -196,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CADA82C2A45D5E50005490C /* SessionManager.swift in Sources */,
+				8C71482B2A45F359007EEDD2 /* LoginForm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +281,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -326,7 +338,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

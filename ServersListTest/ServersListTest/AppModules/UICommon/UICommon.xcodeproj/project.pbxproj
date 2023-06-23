@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C71482E2A45F374007EEDD2 /* TextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71482D2A45F374007EEDD2 /* TextInput.swift */; };
+		8C71483A2A45F5CD007EEDD2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7148392A45F5CD007EEDD2 /* Color.swift */; };
+		8C71483E2A45F842007EEDD2 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71483D2A45F842007EEDD2 /* Font.swift */; };
 		8CADA7472A45D09B0005490C /* UICommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CADA73E2A45D09B0005490C /* UICommon.framework */; };
 		8CADA74C2A45D09B0005490C /* UICommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CADA74B2A45D09B0005490C /* UICommonTests.swift */; };
 		8CADA74D2A45D09B0005490C /* UICommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CADA7412A45D09B0005490C /* UICommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,6 +26,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C71482D2A45F374007EEDD2 /* TextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInput.swift; sourceTree = "<group>"; };
+		8C7148392A45F5CD007EEDD2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		8C71483D2A45F842007EEDD2 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		8CADA73E2A45D09B0005490C /* UICommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UICommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CADA7412A45D09B0005490C /* UICommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICommon.h; sourceTree = "<group>"; };
 		8CADA7462A45D09B0005490C /* UICommonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UICommonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +54,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C71482C2A45F365007EEDD2 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				8C71482D2A45F374007EEDD2 /* TextInput.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		8C7148382A45F5BF007EEDD2 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				8C7148392A45F5CD007EEDD2 /* Color.swift */,
+				8C71483D2A45F842007EEDD2 /* Font.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
 		8CADA7342A45D09B0005490C = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +92,8 @@
 		8CADA7402A45D09B0005490C /* UICommon */ = {
 			isa = PBXGroup;
 			children = (
+				8C7148382A45F5BF007EEDD2 /* Styles */,
+				8C71482C2A45F365007EEDD2 /* Input */,
 				8CADA7412A45D09B0005490C /* UICommon.h */,
 			);
 			path = UICommon;
@@ -144,6 +169,7 @@
 				TargetAttributes = {
 					8CADA73D2A45D09B0005490C = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 					};
 					8CADA7452A45D09B0005490C = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -191,6 +217,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C71483E2A45F842007EEDD2 /* Font.swift in Sources */,
+				8C71482E2A45F374007EEDD2 /* TextInput.swift in Sources */,
+				8C71483A2A45F5CD007EEDD2 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +293,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -321,7 +350,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -336,6 +365,7 @@
 		8CADA7512A45D09B0005490C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -358,6 +388,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +397,7 @@
 		8CADA7522A45D09B0005490C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -396,6 +428,7 @@
 		8CADA7542A45D09B0005490C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -411,6 +444,7 @@
 		8CADA7552A45D09B0005490C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
