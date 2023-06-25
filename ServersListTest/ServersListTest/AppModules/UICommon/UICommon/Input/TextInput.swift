@@ -25,10 +25,10 @@ public struct TextInputView: View {
         HStack {
             icon?
                 .renderingMode(.template)
-                .foregroundColor(SLColor.grayForeground.color)
+                .foregroundColor(SLColor.grayForeground.color) // TODO: change icon tint based on focus
             if isSecure {
                 SecureField(placeholder, text: $text, prompt: Text(placeholder).font(SLFont.inputPlaceholder.font))
-                    .foregroundColor(SLColor.grayForeground.color)
+                    .foregroundColor(SLColor.grayForeground.color) // TODO: change text color based on input
             } else {
                 TextField(placeholder, text: $text, prompt: Text(placeholder).font(SLFont.inputPlaceholder.font))
                     .foregroundColor(SLColor.grayForeground.color)

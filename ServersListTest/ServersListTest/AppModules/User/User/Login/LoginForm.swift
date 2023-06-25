@@ -8,18 +8,20 @@
 import SwiftUI
 import UICommon
 
-struct LoginForm: View {
+public struct LoginForm: View {
     // TODO: inject view model
 
     @StateObject private var viewModel = LoginFormViewModel()
 
-    var body: some View {
+    public init() {}
+
+    public var body: some View {
         VStack(spacing: 16) { // TODO: move strings to some storage
             TextInputView(icon: Image("user"), placeholder: "Username", text: $viewModel.username)
             TextInputView(icon: Image("lock"), placeholder: "Password", text: $viewModel.password, isSecure: true)
             SLButton.Primary(title: "Log in") {
                 viewModel.send()
-            }
+            }.padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
         }
     }
 }
