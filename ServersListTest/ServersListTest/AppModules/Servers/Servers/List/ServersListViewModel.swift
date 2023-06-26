@@ -9,7 +9,10 @@ import Common
 import Foundation
 
 public class ServersListViewModel: ObservableObject {
+    enum SortMethod { case alphabetical, distance }
+
     @Published private(set) var servers = [Server]()
+    @Published var sortMethod = SortMethod.distance
 
     private let sessionManager: SessionManager?
 
@@ -29,6 +32,15 @@ public class ServersListViewModel: ObservableObject {
         let query = ServersQuery()
         query.publisher()
             .replaceError(with: [Server]())
+            .combineLatest($sortMethod)
+            .map { servers, sort in
+                return servers.sorted(by: { lhs, rhs in
+                    switch sort {
+                    case .distance: return lhs.distance < rhs.distance
+                    case .alphabetical: return lhs.name < rhs.name
+                    }
+                })
+            }
             .assign(to: &$servers)
     }
 }

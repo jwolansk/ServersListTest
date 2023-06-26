@@ -7,9 +7,11 @@
 
 import Common
 import SwiftUI
+import UICommon
 
 public struct ServersList: View {
     @StateObject private var viewModel: ServersListViewModel
+    @State var showSortActionSheet = false
 
     public init(viewModel: ServersListViewModel) {
         self._viewModel = .init(wrappedValue: viewModel)
@@ -30,7 +32,7 @@ public struct ServersList: View {
                         .toolbar {
                             ToolbarItem(placement: .navigationBarLeading) {
                                 Button {
-                                    print("Edit button was tapped")
+                                    showSortActionSheet = true
                                 } label: {
                                     HStack {
                                         Image("sort")
@@ -50,6 +52,17 @@ public struct ServersList: View {
                                 }
                             }
                         }
+
+        .confirmationDialog("", isPresented: $showSortActionSheet) {
+            Button("By distance") {
+                viewModel.sortMethod = .distance
+            }
+            Button("Alphabetical") {
+                viewModel.sortMethod = .alphabetical
+            }
+            .foregroundColor(SLColor.gray.color)
+
+        }
     }
 }
 
