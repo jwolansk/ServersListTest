@@ -7,11 +7,13 @@
 
 import Common
 import SwiftUI
+import UICommon
 import User
 
 struct MainView: View {
-    private let viewModel: MainViewViewModel
+    @ObservedObject private var viewModel: MainViewViewModel
     @State var showLoginForm = false
+    @State var hideLogo = false
 
     init(viewModel: MainViewViewModel) {
         self.viewModel = viewModel
@@ -37,11 +39,21 @@ struct MainView: View {
                 ScrollView {
                     VStack(spacing: 40) {
                         Spacer()
-                        Image("logo")
+                        if hideLogo == false {
+                            Image("logo")
+                        }
                         if showLoginForm {
                             // TODO: normally with full app this conditional view creation should be a part of dedicated view provider object
                             if let viewModel: LoginFormViewModel = SLApplication.viewModelFactory.create() {
                                 LoginForm(viewModel: viewModel)
+                            }
+                        }
+                        if hideLogo {
+                            VStack(spacing: 6) {
+                                LoadingSpinner()
+                                Text("Loading list")
+                                    .font(SLFont.caption.font)
+                                    .foregroundColor(SLColor.grayForeground.color)
                             }
                         }
                         Spacer()
@@ -53,6 +65,27 @@ struct MainView: View {
             }
             .ignoresSafeArea(.container)
         }
+        .onChange(of: viewModel.isLoggedIn) { isLoggedIn in
+            withAnimation {
+                showLoginForm = isLoggedIn == false
+                hideLogo = isLoggedIn
+            }
+        }
+    }
+}
+
+struct LoadingSpinner: View {
+    @State private var show = false
+
+    var body: some View {
+        Image("spinner")
+            .rotationEffect(.degrees(show ? 360 : 0))
+            .animation(.linear(duration: 2).repeatForever(autoreverses: false), value: show)
+            .onAppear {
+                DispatchQueue.main.async {
+                    show.toggle()
+                }
+            }
     }
 }
 

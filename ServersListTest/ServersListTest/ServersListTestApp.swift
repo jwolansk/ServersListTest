@@ -25,13 +25,13 @@ struct ServersListTestApp: App {
                     if let viewModel: MainViewViewModel = SLApplication.viewModelFactory.create() {
                         MainView(viewModel: viewModel)
                     }
-                    NavigationLink(destination: Group {
-                        // TODO: normally with full app this conditional view creation should be a part of dedicated view provider object
-                        if let viewModel: ServersListViewModel = SLApplication.viewModelFactory.create() {
-                            ServersList(viewModel: viewModel)
-                                .navigationBarHidden(true)
-                        }
-                    }, isActive: $isShowingDetailView) { EmptyView() }
+//                    NavigationLink(destination: Group {
+//                        // TODO: normally with full app this conditional view creation should be a part of dedicated view provider object
+//                        if let viewModel: ServersListViewModel = SLApplication.viewModelFactory.create() {
+//                            ServersList(viewModel: viewModel)
+//                                .navigationBarHidden(true)
+//                        }
+//                    }, isActive: $isShowingDetailView) { EmptyView() }
                 }
             }
             .navigationBarHidden(true)
