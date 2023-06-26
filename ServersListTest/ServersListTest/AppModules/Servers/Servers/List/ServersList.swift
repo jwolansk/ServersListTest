@@ -5,6 +5,7 @@
 //  Created by Jakub Wolański on 26/06/2023.
 //
 
+import Common
 import SwiftUI
 
 public struct ServersList: View {
@@ -25,6 +26,30 @@ public struct ServersList: View {
         .onAppear {
             viewModel.onAppear()
         }
+        .navigationTitle("Testio.")
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Button {
+                                    print("Edit button was tapped")
+                                } label: {
+                                    HStack {
+                                        Image("sort")
+                                        Text("Filter")
+                                    }
+                                }
+                            }
+
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Button() {
+                                    viewModel.logout()
+                                } label: {
+                                    HStack {
+                                        Text("Logout")
+                                        Image("logout")
+                                    }
+                                }
+                            }
+                        }
     }
 }
 

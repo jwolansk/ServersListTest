@@ -11,10 +11,10 @@ import Foundation
 public class ServersCoordinator: Coordinator {
     public let viewModelFactory: [any ViewModelFactory]
 
-    public init() {
+    public init(sessionManager: SessionManager) {
         viewModelFactory = [
             SingleViewModelFactory {
-                ServersListViewModel()
+                ServersListViewModel(sessionManager: sessionManager)
             }
         ]
     }

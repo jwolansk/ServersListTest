@@ -23,7 +23,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         let sessionManager = SLSessionManager()
         let userCoordinator = UserCoordinator(sessionManager: sessionManager)
         let mainCoordinator = MainCoordinator(sessionManager: sessionManager)
-        let serversCoordinator = ServersCoordinator()
+        let serversCoordinator = ServersCoordinator(sessionManager: sessionManager)
         SLApplication.initialize(with: Config(),
                                  sessionManager: sessionManager,
                                  viewModelFactory: CompositeViewModelFactory(with: userCoordinator.viewModelFactory +

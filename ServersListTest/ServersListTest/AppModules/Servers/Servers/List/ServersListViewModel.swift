@@ -11,8 +11,18 @@ import Foundation
 public class ServersListViewModel: ObservableObject {
     @Published private(set) var servers = [Server]()
 
+    private let sessionManager: SessionManager?
+
+    init(sessionManager: SessionManager? = nil) {
+        self.sessionManager = sessionManager
+    }
+
     func onAppear() {
         loadServers()
+    }
+
+    func logout() {
+        sessionManager?.logout()
     }
 
     private func loadServers() {
