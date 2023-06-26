@@ -10,6 +10,7 @@ import Foundation
 public struct SLApplication {
 
     public static var viewModelFactory: ViewModelFactory!
+    public static var sessionManager: SessionManager!
 
     public static var config: ApplicationConfig = {
         guard let config = defaultConfig else {
@@ -26,7 +27,6 @@ public struct SLApplication {
         self.viewModelFactory = viewModelFactory
     }
 
-    private static var sessionManager: SessionManager?
 
     private static var defaultConfig: ApplicationConfig?
 

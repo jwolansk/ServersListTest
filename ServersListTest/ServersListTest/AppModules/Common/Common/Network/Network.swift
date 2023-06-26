@@ -20,6 +20,7 @@ public enum HTTPMethod: String { case get = "GET", post = "POST" }
 public protocol NetworkQuery {
     var method: HTTPMethod { get }
     var requestPath: String { get }
+    var requiresAuthorization: Bool { get }
     var headers: [String: String] { get }
     var parameters: [String: String] { get }
     associatedtype Result: Decodable
@@ -52,6 +53,9 @@ public class Network<Query: NetworkQuery> {
         var request = URLRequest(url: url)
 
         request.allHTTPHeaderFields = query.headers
+        if let token = SLApplication.sessionManager.token, query.requiresAuthorization {
+            request.allHTTPHeaderFields = query.headers.merging(["Authorization": "Bearer \(token)"]) { (_, new) in new }
+        }
         request.httpMethod = query.method.rawValue
 
         print(request.curlString)

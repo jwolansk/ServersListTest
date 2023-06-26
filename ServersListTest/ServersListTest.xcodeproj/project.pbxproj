@@ -27,6 +27,7 @@
 		8CADA82E2A45DBB20005490C /* SessionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CADA82D2A45DBB20005490C /* SessionManagerTests.swift */; };
 		8CADA8302A45DD320005490C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CADA82F2A45DD320005490C /* AppDelegate.swift */; };
 		8CD49CC62A49838F0026F850 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD49CC52A49838F0026F850 /* MainCoordinator.swift */; };
+		8CD49CDD2A498C3F0026F850 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD49CDC2A498C3E0026F850 /* NavigationCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		8CADA82D2A45DBB20005490C /* SessionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerTests.swift; sourceTree = "<group>"; };
 		8CADA82F2A45DD320005490C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CD49CC52A49838F0026F850 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		8CD49CDC2A498C3E0026F850 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 				8CADA6E92A45CD580005490C /* MainView.swift */,
 				8CD49CC52A49838F0026F850 /* MainCoordinator.swift */,
 				8CADA82F2A45DD320005490C /* AppDelegate.swift */,
+				8CD49CDC2A498C3E0026F850 /* NavigationCoordinator.swift */,
 				8CADA6EB2A45CD5A0005490C /* Assets.xcassets */,
 				8CADA6ED2A45CD5A0005490C /* Preview Content */,
 			);
@@ -524,6 +527,7 @@
 				8CADA6EA2A45CD580005490C /* MainView.swift in Sources */,
 				8CADA6E82A45CD580005490C /* ServersListTestApp.swift in Sources */,
 				8CD49CC62A49838F0026F850 /* MainCoordinator.swift in Sources */,
+				8CD49CDD2A498C3F0026F850 /* NavigationCoordinator.swift in Sources */,
 				8CADA81A2A45D2BA0005490C /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

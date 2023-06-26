@@ -37,6 +37,8 @@ public class LoginFormViewModel: ObservableObject {
 }
 
 struct LoginQuery: NetworkQuery {
+    var requiresAuthorization: Bool { false }
+
     var method: HTTPMethod { .post }
 
     typealias Result = Token

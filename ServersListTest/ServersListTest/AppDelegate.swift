@@ -7,6 +7,7 @@
 
 import Common
 import Foundation
+import Servers
 import UIKit
 import User
 
@@ -22,8 +23,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         let sessionManager = SLSessionManager()
         let userCoordinator = UserCoordinator(sessionManager: sessionManager)
         let mainCoordinator = MainCoordinator(sessionManager: sessionManager)
+        let serversCoordinator = ServersCoordinator()
         SLApplication.initialize(with: Config(),
                                  sessionManager: sessionManager,
-                                 viewModelFactory: CompositeViewModelFactory(with: userCoordinator.viewModelFactory + mainCoordinator.viewModelFactory))
+                                 viewModelFactory: CompositeViewModelFactory(with: userCoordinator.viewModelFactory +
+                                                                             mainCoordinator.viewModelFactory +
+                                                                             serversCoordinator.viewModelFactory))
     }
 }

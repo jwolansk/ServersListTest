@@ -26,11 +26,12 @@ struct MainView: View {
                 .frame(maxWidth: .infinity)
         }
         .ignoresSafeArea()
-        .onReceive(viewModel.$isLoggedIn, perform: { isLoggedIn in
+        .onAppear() {
+            // check login form needed
             withAnimation {
-                showLoginForm = isLoggedIn == false
+                showLoginForm = viewModel.isLoggedIn == false
             }
-        })
+        }
         .overlay() {
             GeometryReader { geometry in
                 ScrollView {
