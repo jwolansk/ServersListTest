@@ -35,20 +35,23 @@ struct ServersListTestApp: App {
                 }
             }
             .navigationBarHidden(true)
-            .onReceive(navigationViewModel.$isLoggedIn) { isLoggedIn in
-                isShowingDetailView = isLoggedIn
+            .onReceive(navigationViewModel.$isReadyForHome) { isReadyForHome in
+                isShowingDetailView = isReadyForHome
             }
         }
     }
 }
 
 class AppNavigationViewModel: ObservableObject {
-    @Published var isLoggedIn: Bool = false
+    @Published var isReadyForHome: Bool = false
 
     private var sessionManager: SessionManager
 
     init() {
         self.sessionManager = SLApplication.sessionManager
-        sessionManager.isLoggedIn.print("isloggedin").assign(to: &$isLoggedIn)
+        sessionManager.isLoggedIn
+            .combineLatest(SLApplication.serversDataManager.isDataReady)
+            .map { $0 && $1 }
+            .assign(to: &$isReadyForHome)
     }
 }

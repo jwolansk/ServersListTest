@@ -9,15 +9,17 @@ import Combine
 import Common
 import Foundation
 
-public class ServersDataManager {
-    @Published var isDataReady: Bool = false
+public class ServersDataManager: DataProvider {
+
+    public var isDataReady: AnyPublisher<Bool, Never> { isDataReadySubject.eraseToAnyPublisher() }
     @Published private(set) var servers = [Server]()
 
+    private var isDataReadySubject = CurrentValueSubject<Bool, Never>(false)
     private let sessionManager: SessionManager?
     private let serversStorageName = "servers.data"
     private var subscriptions = Set<AnyCancellable>()
 
-    init(sessionManager: SessionManager? = nil) {
+    public init(sessionManager: SessionManager? = nil) {
         self.sessionManager = sessionManager
 
         bindLoggedInDataLoad()
@@ -27,11 +29,16 @@ public class ServersDataManager {
 
     private func bindLoggedInDataLoad() {
         sessionManager?.isLoggedIn.sink(receiveValue: { [weak self] isLoggedIn in
-            guard isLoggedIn else { return }
+            guard isLoggedIn else {
+                self?.servers = [Server]()
+                return
+            }
             self?.loadServers()
         }).store(in: &subscriptions)
 
-        $servers.map { $0.isEmpty == false }.assign(to: &$isDataReady)
+        $servers.map { $0.isEmpty == false }
+            .sink(receiveValue: isDataReadySubject.send)
+            .store(in: &subscriptions)
     }
 
     private func readServersCache() {
@@ -55,10 +62,13 @@ public class ServersDataManager {
     }
 
     private func loadServers() {
-        let query = ServersQuery()
-        query.publisher()
-            .replaceError(with: [Server]())
-            .assign(to: &$servers)
+        // delay to simulate network lag to show spinner state
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            let query = ServersQuery()
+            query.publisher()
+                .replaceError(with: [Server]())
+                .assign(to: &self.$servers)
+        }
     }
 }
 

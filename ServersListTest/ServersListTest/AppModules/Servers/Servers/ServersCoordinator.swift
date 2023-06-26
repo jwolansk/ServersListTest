@@ -10,10 +10,9 @@ import Foundation
 
 public class ServersCoordinator: Coordinator {
     public let viewModelFactory: [any ViewModelFactory]
+    public let dataManager: ServersDataManager
 
-    let dataManager: ServersDataManager
-
-    public init(sessionManager: SessionManager) {
+    public init(sessionManager: SessionManager, dataManager: ServersDataManager) {
         let dataManager = ServersDataManager(sessionManager: sessionManager)
         self.dataManager = dataManager
 

@@ -11,6 +11,7 @@ public struct SLApplication {
 
     public static var viewModelFactory: ViewModelFactory!
     public static var sessionManager: SessionManager!
+    public static var serversDataManager: DataProvider!
 
     public static var config: ApplicationConfig = {
         guard let config = defaultConfig else {
@@ -20,10 +21,14 @@ public struct SLApplication {
         return config
     }()
 
-    public static func initialize(with config: ApplicationConfig, sessionManager: SessionManager, viewModelFactory: ViewModelFactory) {
+    public static func initialize(with config: ApplicationConfig,
+                                  sessionManager: SessionManager,
+                                  serversDataManager: DataProvider,
+                                  viewModelFactory: ViewModelFactory) {
         defaultConfig = config
         NetworkConfiguration.configure(apiBaseUrl: config.apiBaseUrl)
         self.sessionManager = sessionManager
+        self.serversDataManager = serversDataManager
         self.viewModelFactory = viewModelFactory
     }
 
