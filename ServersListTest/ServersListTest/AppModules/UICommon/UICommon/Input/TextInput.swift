@@ -29,10 +29,12 @@ public struct TextInputView: View {
                 .foregroundColor(focused ? SLColor.black.color : SLColor.grayForeground.color)
             if isSecure {
                 SecureField(placeholder, text: $text, prompt: Text(placeholder).font(SLFont.inputPlaceholder.font))
+                    .autocapitalization(.none)
                     .foregroundColor(focused ? SLColor.gray.color : SLColor.grayForeground.color)
                     .focused($focused)
             } else {
                 TextField(placeholder, text: $text, prompt: Text(placeholder).font(SLFont.inputPlaceholder.font))
+                    .autocapitalization(.none)
                     .foregroundColor(focused ? SLColor.gray.color : SLColor.grayForeground.color)
                     .focused($focused)
             }
