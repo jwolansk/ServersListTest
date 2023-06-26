@@ -78,7 +78,7 @@ struct LoadingSpinner: View {
     @State private var show = false
 
     var body: some View {
-        Image("spinner")
+        Image("Spinner")
             .rotationEffect(.degrees(show ? 360 : 0))
             .animation(.linear(duration: 2).repeatForever(autoreverses: false), value: show)
             .onAppear {

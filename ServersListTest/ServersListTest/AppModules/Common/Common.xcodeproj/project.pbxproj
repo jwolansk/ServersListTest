@@ -13,6 +13,7 @@
 		8CADA81C2A45D2E10005490C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CADA81B2A45D2E10005490C /* Config.swift */; };
 		8CADA8282A45D3A80005490C /* SLApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CADA8272A45D3A80005490C /* SLApplication.swift */; };
 		8CADA82A2A45D4C90005490C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CADA8292A45D4C90005490C /* Network.swift */; };
+		8CC231D72A49DA68000D559E /* KeychainStringStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC231D62A49DA68000D559E /* KeychainStringStorage.swift */; };
 		8CD49CC02A496FB30026F850 /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD49CBF2A496FB30026F850 /* ViewModelFactory.swift */; };
 		8CD49CC42A49745F0026F850 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD49CC32A49745F0026F850 /* Coordinator.swift */; };
 		8CD49CE22A49BF030026F850 /* CodableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD49CE12A49BF030026F850 /* CodableStorage.swift */; };
@@ -36,6 +37,7 @@
 		8CADA81B2A45D2E10005490C /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		8CADA8272A45D3A80005490C /* SLApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLApplication.swift; sourceTree = "<group>"; };
 		8CADA8292A45D4C90005490C /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		8CC231D62A49DA68000D559E /* KeychainStringStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStringStorage.swift; sourceTree = "<group>"; };
 		8CD49CBF2A496FB30026F850 /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
 		8CD49CC32A49745F0026F850 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8CD49CE12A49BF030026F850 /* CodableStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableStorage.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				8CD49CE12A49BF030026F850 /* CodableStorage.swift */,
+				8CC231D62A49DA68000D559E /* KeychainStringStorage.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			files = (
 				8CD49CC02A496FB30026F850 /* ViewModelFactory.swift in Sources */,
 				8CADA81C2A45D2E10005490C /* Config.swift in Sources */,
+				8CC231D72A49DA68000D559E /* KeychainStringStorage.swift in Sources */,
 				8CD49CC42A49745F0026F850 /* Coordinator.swift in Sources */,
 				8CADA8282A45D3A80005490C /* SLApplication.swift in Sources */,
 				8CD49CE22A49BF030026F850 /* CodableStorage.swift in Sources */,

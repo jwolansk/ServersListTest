@@ -41,6 +41,17 @@ public class ServersDataManager: DataProvider {
             .store(in: &subscriptions)
     }
 
+    private func loadServers() {
+        // delay to simulate network lag to show spinner state
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            let query = ServersQuery()
+            query.publisher()
+                .replaceError(with: [Server]())
+                .assign(to: &self.$servers)
+        }
+    }
+
+    // MARK: servers persistence
     private func readServersCache() {
         do {
             if let cached: [Server] = try CodableStorage.read(filename: serversStorageName) {
@@ -61,15 +72,6 @@ public class ServersDataManager: DataProvider {
         }.store(in: &subscriptions)
     }
 
-    private func loadServers() {
-        // delay to simulate network lag to show spinner state
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            let query = ServersQuery()
-            query.publisher()
-                .replaceError(with: [Server]())
-                .assign(to: &self.$servers)
-        }
-    }
 }
 
 struct ServersQuery: NetworkQuery {
