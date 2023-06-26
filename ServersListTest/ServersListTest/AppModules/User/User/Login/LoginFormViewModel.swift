@@ -10,8 +10,8 @@ import Common
 import Foundation
 
 public class LoginFormViewModel: ObservableObject {
-    @Published var username: String = "tesonet"
-    @Published var password: String = "partyanimal"
+    @Published var username: String = ""
+    @Published var password: String = ""
     @Published var error: Bool = false
     @Published private(set) var isLoggedIn: Bool = false
 

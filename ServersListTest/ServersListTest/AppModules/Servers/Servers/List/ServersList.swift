@@ -18,48 +18,67 @@ public struct ServersList: View {
     }
 
     public var body: some View {
-        List(viewModel.servers) { server in
-            HStack {
-                Text(server.name)
-                Spacer()
-                Text("\(server.distance)")
-            }
-        }
-        .navigationTitle("Testio.")
-                        .toolbar {
-                            ToolbarItem(placement: .navigationBarLeading) {
-                                Button {
-                                    showSortActionSheet = true
-                                } label: {
-                                    HStack {
-                                        Image("sort")
-                                        Text("Filter")
-                                    }
-                                }
-                            }
+        VStack(spacing: 0) {
+            Rectangle()
+                .frame(height: 0.2)
+                .background(SLColor.white.color)
 
-                            ToolbarItem(placement: .navigationBarTrailing) {
-                                Button() {
-                                    viewModel.logout()
-                                } label: {
-                                    HStack {
-                                        Text("Logout")
-                                        Image("logout")
-                                    }
-                                }
-                            }
+            List() {
+                Section(content: {
+                    ForEach(viewModel.servers) { server in
+                        HStack {
+                            Text(server.name)
+                            Spacer()
+                            Text("\(server.distance) km")
+                                .frame(width: 80, alignment: .leading)
                         }
-
-        .confirmationDialog("", isPresented: $showSortActionSheet) {
-            Button("By distance") {
-                viewModel.sortMethod = .distance
+                    }
+                }, header: {
+                    HStack {
+                        Text("SERVER")
+                        Spacer()
+                        Text("DISTANCE")
+                            .frame(width: 80, alignment: .leading)
+                    }
+                })
             }
-            // Figma says this title should be black, but this is not defined in HIG, only descructive or cancel role have own style
-            // TODO: implement custom action sheet with black text item
-            Button("Alphabetical") {
-                viewModel.sortMethod = .alphabetical
+            .listStyle(.grouped)
+            .navigationTitle("Testio.")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        showSortActionSheet = true
+                    } label: {
+                        HStack {
+                            Image("sort")
+                            Text("Filter")
+                        }
+                    }
+                }
+
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button() {
+                        viewModel.logout()
+                    } label: {
+                        HStack {
+                            Text("Logout")
+                            Image("logout")
+                        }
+                    }
+                }
             }
 
+            .confirmationDialog("", isPresented: $showSortActionSheet) {
+                Button("By distance") {
+                    viewModel.sortMethod = .distance
+                }
+                // Figma says this title should be black, but this is not defined in HIG, only descructive or cancel role have own style
+                // TODO: implement custom action sheet with black text item
+                Button("Alphabetical") {
+                    viewModel.sortMethod = .alphabetical
+                }
+
+            }
         }
     }
 }
