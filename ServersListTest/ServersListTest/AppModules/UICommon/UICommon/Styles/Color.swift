@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 public enum SLColor {
-    case grayForeground, grayBackground, grayLight, gray, blue, white
+    case grayForeground, grayBackground, grayLight, gray, blue, white, black
 
     public var color: Color {
         switch self {
@@ -19,6 +19,7 @@ public enum SLColor {
         case .gray: return Color(red: 0.24, green: 0.24, blue: 0.26)
         case .blue: return Color(red: 0.27, green: 0.53, blue: 1)
         case .white: return .white
+        case .black: return .black
         }
     }
 }

@@ -13,6 +13,7 @@ public struct TextInputView: View {
     private let isSecure: Bool
 
     @Binding public var text: String
+    @FocusState private var focused: Bool
 
     public init(icon: Image? = nil, placeholder: String = "", text: Binding<String>, isSecure: Bool = false) {
         self.icon = icon
@@ -25,13 +26,15 @@ public struct TextInputView: View {
         HStack {
             icon?
                 .renderingMode(.template)
-                .foregroundColor(SLColor.grayForeground.color) // TODO: change icon tint based on focus
+                .foregroundColor(focused ? SLColor.black.color : SLColor.grayForeground.color) // TODO: change icon tint based on focus
             if isSecure {
                 SecureField(placeholder, text: $text, prompt: Text(placeholder).font(SLFont.inputPlaceholder.font))
-                    .foregroundColor(SLColor.grayForeground.color) // TODO: change text color based on input
+                    .foregroundColor(focused ? SLColor.gray.color : SLColor.grayForeground.color)
+                    .focused($focused)
             } else {
                 TextField(placeholder, text: $text, prompt: Text(placeholder).font(SLFont.inputPlaceholder.font))
-                    .foregroundColor(SLColor.grayForeground.color)
+                    .foregroundColor(focused ? SLColor.gray.color : SLColor.grayForeground.color)
+                    .focused($focused)
             }
         }
         .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
