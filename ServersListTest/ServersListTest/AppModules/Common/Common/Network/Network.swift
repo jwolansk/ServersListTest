@@ -31,13 +31,13 @@ struct NetworkConfiguration {
     static func configure(apiBaseUrl: String) {
         NetworkConfiguration.apiBaseUrl = apiBaseUrl
     }
+
+    static let session = URLSession(configuration: .default)
 }
 
-// TODO: refactor URLSession storage
 public class Network<Query: NetworkQuery> {
 
     public static func send(with query: Query, completion: @escaping (Query.Result) -> Void) {
-        let session = URLSession(configuration: .default)
 
         guard var components = URLComponents(string: NetworkConfiguration.apiBaseUrl + query.requestPath) else {
             let msg = "Network, invalid base URL!!! Please set Network.apiBaseUrl first"
@@ -60,7 +60,7 @@ public class Network<Query: NetworkQuery> {
 
         print(request.curlString)
 
-        let task = session.dataTask(with: request) { data, response, error in
+        let task = NetworkConfiguration.session.dataTask(with: request) { data, response, error in
             if let error = error {
                 print(error)
             } else if let data = data {

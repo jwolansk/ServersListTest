@@ -12,7 +12,7 @@ import Foundation
 public class LoginFormViewModel: ObservableObject {
     @Published var username: String = "tesonet"
     @Published var password: String = "partyanimal"
-    @Published private(set) var error: String?
+    @Published var error: Bool = false
     @Published private(set) var isLoggedIn: Bool = false
 
     private var sessionManager: SessionManager
@@ -28,9 +28,14 @@ public class LoginFormViewModel: ObservableObject {
         LoginQuery(username: username, password: password)
             .publisher()
             .sink(receiveCompletion: { [weak self] error in
-                self?.error = "Your username or password is incorrect"
+                self?.error = true
             }, receiveValue: { [weak self] result in
-                self?.sessionManager.store(token: result.token)
+                if let token = result.token {
+                    self?.sessionManager.store(token: token)
+                }
+                if let message = result.message {
+                    self?.error = true
+                }
             })
             .store(in: &subscriptions)
     }
@@ -57,5 +62,6 @@ struct LoginQuery: NetworkQuery {
 }
 
 struct Token: Decodable {
-    let token: String
+    let token: String?
+    let message: String?
 }

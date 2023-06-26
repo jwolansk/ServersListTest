@@ -10,7 +10,6 @@ import SwiftUI
 import UICommon
 
 public struct LoginForm: View {
-    // TODO: inject view model
 
     @StateObject private var viewModel: LoginFormViewModel
 
@@ -26,6 +25,11 @@ public struct LoginForm: View {
                 viewModel.send()
             }.padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
         }
+        .alert("Verification failed", isPresented: $viewModel.error, actions: {
+//            viewModel.error = false
+        }, message: {
+            Text("Your username or password is incorrect.")
+        })
     }
 }
 
