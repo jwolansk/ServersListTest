@@ -26,7 +26,7 @@ public struct TextInputView: View {
         HStack {
             icon?
                 .renderingMode(.template)
-                .foregroundColor(focused ? SLColor.black.color : SLColor.grayForeground.color) // TODO: change icon tint based on focus
+                .foregroundColor(focused ? SLColor.black.color : SLColor.grayForeground.color)
             if isSecure {
                 SecureField(placeholder, text: $text, prompt: Text(placeholder).font(SLFont.inputPlaceholder.font))
                     .foregroundColor(focused ? SLColor.gray.color : SLColor.grayForeground.color)

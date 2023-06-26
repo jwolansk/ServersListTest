@@ -25,9 +25,6 @@ public struct ServersList: View {
                 Text("\(server.distance)")
             }
         }
-        .onAppear {
-            viewModel.onAppear()
-        }
         .navigationTitle("Testio.")
                         .toolbar {
                             ToolbarItem(placement: .navigationBarLeading) {
@@ -69,6 +66,6 @@ public struct ServersList: View {
 
 struct ServersList_Previews: PreviewProvider {
     static var previews: some View {
-        ServersList(viewModel: ServersListViewModel())
+        ServersList(viewModel: ServersListViewModel(dataManager: ServersDataManager()))
     }
 }

@@ -39,6 +39,8 @@ public class Network<Query: NetworkQuery> {
 
     public static func send(with query: Query, completion: @escaping (Query.Result) -> Void) {
 
+        guard NetworkConfiguration.apiBaseUrl.isEmpty == false else { return }
+
         guard var components = URLComponents(string: NetworkConfiguration.apiBaseUrl + query.requestPath) else {
             let msg = "Network, invalid base URL!!! Please set Network.apiBaseUrl first"
             fatalError(msg)

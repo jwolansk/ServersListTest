@@ -16,6 +16,7 @@
 		8CD49CD72A4984FA0026F850 /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8CD49CD52A4984FA0026F850 /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8CD49CDB2A4985440026F850 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD49CDA2A4985440026F850 /* Server.swift */; };
 		8CD49CDF2A4992320026F850 /* ServersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD49CDE2A4992320026F850 /* ServersCoordinator.swift */; };
+		8CD49CE42A49C73F0026F850 /* ServersDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD49CE32A49C73F0026F850 /* ServersDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		8CD49CD52A4984FA0026F850 /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CD49CDA2A4985440026F850 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		8CD49CDE2A4992320026F850 /* ServersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersCoordinator.swift; sourceTree = "<group>"; };
+		8CD49CE32A49C73F0026F850 /* ServersDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				8CD49CCF2A4984AD0026F850 /* List */,
 				8CADA7852A45D0BE0005490C /* Servers.h */,
 				8CD49CDE2A4992320026F850 /* ServersCoordinator.swift */,
+				8CD49CE32A49C73F0026F850 /* ServersDataManager.swift */,
 			);
 			path = Servers;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				8CD49CDF2A4992320026F850 /* ServersCoordinator.swift in Sources */,
 				8CD49CDB2A4985440026F850 /* Server.swift in Sources */,
 				8CD49CD32A4984E70026F850 /* ServersListViewModel.swift in Sources */,
+				8CD49CE42A49C73F0026F850 /* ServersDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

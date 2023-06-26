@@ -16,48 +16,15 @@ public class ServersListViewModel: ObservableObject {
     @Published var sortMethod = SortMethod.distance
 
     private let sessionManager: SessionManager?
+    private let dataManager: ServersDataManager
     private let serversStorageName = "servers.data"
     private var subscriptions = Set<AnyCancellable>()
 
-    init(sessionManager: SessionManager? = nil) {
+    init(sessionManager: SessionManager? = nil, dataManager: ServersDataManager) {
         self.sessionManager = sessionManager
+        self.dataManager = dataManager
 
-        readServersCache()
-        bindServersCache()
-    }
-
-    func onAppear() {
-        loadServers()
-    }
-
-    func logout() {
-        sessionManager?.logout()
-    }
-
-    private func readServersCache() {
-        do {
-            if let cached: [Server] = try CodableStorage.read(filename: serversStorageName) {
-                servers = cached
-            }
-        } catch {
-            print("Error reading servers cache")
-        }
-    }
-
-    private func bindServersCache() {
-        $servers.sink { [serversStorageName] servers in
-            do {
-                try CodableStorage.store(servers, filename: serversStorageName)
-            } catch {
-                print("servers persistent storage failed")
-            }
-        }.store(in: &subscriptions)
-    }
-
-    private func loadServers() {
-        let query = ServersQuery()
-        query.publisher()
-            .replaceError(with: [Server]())
+        dataManager.$servers
             .combineLatest($sortMethod)
             .map { servers, sort in
                 return servers.sorted(by: { lhs, rhs in
@@ -69,16 +36,8 @@ public class ServersListViewModel: ObservableObject {
             }
             .assign(to: &$servers)
     }
-}
 
-struct ServersQuery: NetworkQuery {
-    var requiresAuthorization: Bool { true }
-
-    var method: HTTPMethod { .get }
-
-    var parameters: [String: String] = [:]
-
-    let requestPath: String = "servers"
-    var headers: [String: String] { [:] }
-    typealias Result = [Server]
+    func logout() {
+        sessionManager?.logout()
+    }
 }
