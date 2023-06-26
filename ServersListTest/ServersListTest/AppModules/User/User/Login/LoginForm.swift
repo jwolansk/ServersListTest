@@ -5,15 +5,18 @@
 //  Created by Jakub Wolański on 23/06/2023.
 //
 
+import Common
 import SwiftUI
 import UICommon
 
 public struct LoginForm: View {
     // TODO: inject view model
 
-    @StateObject private var viewModel = LoginFormViewModel()
+    @StateObject private var viewModel: LoginFormViewModel
 
-    public init() {}
+    public init(viewModel: LoginFormViewModel) {
+        self._viewModel = .init(wrappedValue: viewModel)
+    }
 
     public var body: some View {
         VStack(spacing: 16) { // TODO: move strings to some storage
@@ -28,6 +31,6 @@ public struct LoginForm: View {
 
 struct LoginForm_Previews: PreviewProvider {
     static var previews: some View {
-        LoginForm()
+        LoginForm(viewModel: LoginFormViewModel(sessionManager: SLSessionManager()))
     }
 }

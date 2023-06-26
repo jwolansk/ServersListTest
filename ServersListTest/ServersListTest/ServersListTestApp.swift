@@ -5,6 +5,7 @@
 //  Created by Jakub Wolański on 23/06/2023.
 //
 
+import Common
 import SwiftUI
 
 @main
@@ -13,7 +14,10 @@ struct ServersListTestApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView()
+            // TODO: normally with full app this conditional view creation should be a part of dedicated view provider object
+            if let viewModel: MainViewViewModel = SLApplication.viewModelFactory.create() {
+                MainView(viewModel: viewModel)
+            }
         }
     }
 }

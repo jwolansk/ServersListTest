@@ -9,6 +9,8 @@ import Foundation
 
 public struct SLApplication {
 
+    public static var viewModelFactory: ViewModelFactory!
+
     public static var config: ApplicationConfig = {
         guard let config = defaultConfig else {
             let msg = "SLApplication: has to be initialized correctly - please call initialize(config:) method first"
@@ -17,10 +19,11 @@ public struct SLApplication {
         return config
     }()
 
-    public static func initialize(with config: ApplicationConfig, sessionManager: SessionManager) {
+    public static func initialize(with config: ApplicationConfig, sessionManager: SessionManager, viewModelFactory: ViewModelFactory) {
         defaultConfig = config
         NetworkConfiguration.configure(apiBaseUrl: config.apiBaseUrl)
         self.sessionManager = sessionManager
+        self.viewModelFactory = viewModelFactory
     }
 
     private static var sessionManager: SessionManager?

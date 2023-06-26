@@ -20,6 +20,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
     private func setupApplication() {
         let sessionManager = SLSessionManager()
-        SLApplication.initialize(with: Config(), sessionManager: sessionManager)
+        let userCoordinator = UserCoordinator(sessionManager: sessionManager)
+        let mainCoordinator = MainCoordinator(sessionManager: sessionManager)
+        SLApplication.initialize(with: Config(),
+                                 sessionManager: sessionManager,
+                                 viewModelFactory: CompositeViewModelFactory(with: userCoordinator.viewModelFactory + mainCoordinator.viewModelFactory))
     }
 }

@@ -17,6 +17,7 @@
 		8CADA76E2A45D0AC0005490C /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CADA76D2A45D0AC0005490C /* UserTests.swift */; };
 		8CADA76F2A45D0AC0005490C /* User.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CADA7632A45D0AC0005490C /* User.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8CADA82C2A45D5E50005490C /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CADA82B2A45D5E50005490C /* SessionManager.swift */; };
+		8CD49CC22A49709D0026F850 /* UserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD49CC12A49709D0026F850 /* UserCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		8CADA7682A45D0AC0005490C /* UserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CADA76D2A45D0AC0005490C /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		8CADA82B2A45D5E50005490C /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		8CD49CC12A49709D0026F850 /* UserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		8CADA7622A45D0AC0005490C /* User */ = {
 			isa = PBXGroup;
 			children = (
+				8CD49CC12A49709D0026F850 /* UserCoordinator.swift */,
 				8C7148292A45F34A007EEDD2 /* Login */,
 				8CADA7632A45D0AC0005490C /* User.h */,
 				8CADA82B2A45D5E50005490C /* SessionManager.swift */,
@@ -246,6 +249,7 @@
 				8CADA82C2A45D5E50005490C /* SessionManager.swift in Sources */,
 				8C7148542A46003B007EEDD2 /* LoginFormViewModel.swift in Sources */,
 				8C71482B2A45F359007EEDD2 /* LoginForm.swift in Sources */,
+				8CD49CC22A49709D0026F850 /* UserCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,13 +5,17 @@
 //  Created by Jakub Wolański on 23/06/2023.
 //
 
+import Common
 import SwiftUI
 import User
 
 struct MainView: View {
-    private let viewModel = MainViewViewModel()
+    private let viewModel: MainViewViewModel
     @State var showLoginForm = false
 
+    init(viewModel: MainViewViewModel) {
+        self.viewModel = viewModel
+    }
     var body: some View {
         VStack {
             Spacer()
@@ -34,7 +38,10 @@ struct MainView: View {
                         Spacer()
                         Image("logo")
                         if showLoginForm {
-                            LoginForm()
+                            // TODO: normally with full app this conditional view creation should be a part of dedicated view provider object
+                            if let viewModel: LoginFormViewModel = SLApplication.viewModelFactory.create() {
+                                LoginForm(viewModel: viewModel)
+                            }
                         }
                         Spacer()
                     }
@@ -50,14 +57,18 @@ struct MainView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(viewModel: MainViewViewModel(sessionManager: SLSessionManager()))
     }
 }
 
 class MainViewViewModel: ObservableObject {
     @Published private(set) var isLoggedIn: Bool = false
 
-    init() {
-        isLoggedIn = false
+    private var sessionManager: SessionManager
+
+    init(sessionManager: SessionManager) {
+        self.sessionManager = sessionManager
+
+        sessionManager.isLoggedIn.assign(to: &$isLoggedIn)
     }
 }
