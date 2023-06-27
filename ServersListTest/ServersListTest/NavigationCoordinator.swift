@@ -29,7 +29,7 @@ class NavigationCoordinator {
     }
 
     @ViewBuilder
-    static var rootView: some View {
+    var rootView: some View {
         if let viewModel: MainViewViewModel = SLApplication.viewModelFactory.create() {
             MainView(viewModel: viewModel)
         }
@@ -38,26 +38,31 @@ class NavigationCoordinator {
 }
 
 struct AppNavigationView: View {
-    @State private var isShowingDetailView = false
+    @State private var activateServerListRoute = false
 
     private let navigationCoordinator = NavigationCoordinator()
+
+    @ViewBuilder
+    var serversListNavigationRoute: some View {
+        NavigationLink(destination: Group {
+            // TODO: normally with full app this conditional view creation should be a part of dedicated view provider object
+            if let viewModel: ServersListViewModel = SLApplication.viewModelFactory.create() {
+                ServersList(viewModel: viewModel)
+                    .navigationBarBackButtonHidden(true)
+            }
+        }, isActive: $activateServerListRoute) { EmptyView() }
+    }
 
     var body: some View {
         NavigationView {
             VStack {
-                NavigationCoordinator.rootView
-                NavigationLink(destination: Group {
-                    // TODO: normally with full app this conditional view creation should be a part of dedicated view provider object
-                    if let viewModel: ServersListViewModel = SLApplication.viewModelFactory.create() {
-                        ServersList(viewModel: viewModel)
-                            .navigationBarBackButtonHidden(true)
-                    }
-                }, isActive: $isShowingDetailView) { EmptyView() }
+                navigationCoordinator.rootView
+                serversListNavigationRoute
             }
         }
         .navigationBarHidden(true)
         .onReceive(navigationCoordinator.$isReadyForHome) { isReadyForHome in
-            isShowingDetailView = isReadyForHome
+            activateServerListRoute = isReadyForHome
         }
     }
 }
