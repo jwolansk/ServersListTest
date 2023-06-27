@@ -72,11 +72,12 @@ public struct ServersList: View {
                 Button("By distance") {
                     viewModel.sortMethod = .distance
                 }
+                .disabled(viewModel.sortMethod == .distance)
                 // Figma says this title should be black, but this is not defined in HIG, only descructive or cancel role have own style
-                // TODO: implement custom action sheet with black text item
                 Button("Alphabetical") {
                     viewModel.sortMethod = .alphabetical
                 }
+                .disabled(viewModel.sortMethod == .alphabetical)
 
             }
         }
