@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C5087652A4B80B200F8689E /* Frameworks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5087642A4B80B200F8689E /* Frameworks.framework */; };
 		8CADA7252A45D0880005490C /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CADA71C2A45D0880005490C /* Common.framework */; };
 		8CADA72A2A45D0880005490C /* CommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CADA7292A45D0880005490C /* CommonTests.swift */; };
 		8CADA72B2A45D0880005490C /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CADA71F2A45D0880005490C /* Common.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C5087642A4B80B200F8689E /* Frameworks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Frameworks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CADA71C2A45D0880005490C /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CADA71F2A45D0880005490C /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		8CADA7242A45D0880005490C /* CommonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C5087652A4B80B200F8689E /* Frameworks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +65,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C5087632A4B80B200F8689E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C5087642A4B80B200F8689E /* Frameworks.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8CADA7122A45D0880005490C = {
 			isa = PBXGroup;
 			children = (
 				8CADA71E2A45D0880005490C /* Common */,
 				8CADA7282A45D0880005490C /* CommonTests */,
 				8CADA71D2A45D0880005490C /* Products */,
+				8C5087632A4B80B200F8689E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

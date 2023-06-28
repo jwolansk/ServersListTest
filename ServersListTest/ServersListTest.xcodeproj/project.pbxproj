@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C5087732A4B82E000F8689E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5087722A4B82E000F8689E /* MainView.swift */; };
 		8C7148282A45ED65007EEDD2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C7148272A45ED65007EEDD2 /* Launch Screen.storyboard */; };
 		8CADA6E82A45CD580005490C /* ServersListTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CADA6E72A45CD580005490C /* ServersListTestApp.swift */; };
 		8CADA6EA2A45CD580005490C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CADA6E92A45CD580005490C /* MainView.swift */; };
@@ -31,6 +32,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8C5087562A4B801100F8689E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C50874F2A4B801100F8689E /* Frameworks.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8C5087372A4B7FFE00F8689E;
+			remoteInfo = Frameworks;
+		};
+		8C5087582A4B801100F8689E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C50874F2A4B801100F8689E /* Frameworks.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8C50873F2A4B7FFF00F8689E;
+			remoteInfo = FrameworksTests;
+		};
 		8CADA6F52A45CD5A0005490C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8CADA6DC2A45CD580005490C /* Project object */;
@@ -121,6 +136,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8C50874F2A4B801100F8689E /* Frameworks.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Frameworks.xcodeproj; path = Frameworks/Frameworks.xcodeproj; sourceTree = "<group>"; };
+		8C5087722A4B82E000F8689E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8C7148272A45ED65007EEDD2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8CADA6E42A45CD580005490C /* ServersListTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServersListTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CADA6E72A45CD580005490C /* ServersListTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersListTestApp.swift; sourceTree = "<group>"; };
@@ -172,6 +189,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C5087502A4B801100F8689E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8C5087572A4B801100F8689E /* Frameworks.framework */,
+				8C5087592A4B801100F8689E /* FrameworksTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8C5087712A4B82D300F8689E /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				8C5087722A4B82E000F8689E /* MainView.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
 		8CADA6DB2A45CD580005490C = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +230,7 @@
 		8CADA6E62A45CD580005490C /* ServersListTest */ = {
 			isa = PBXGroup;
 			children = (
+				8C5087712A4B82D300F8689E /* Features */,
 				8CADA80D2A45D2220005490C /* Config */,
 				8CADA7112A45CD960005490C /* AppModules */,
 				8CADA6E72A45CD580005490C /* ServersListTestApp.swift */,
@@ -239,6 +274,7 @@
 		8CADA7112A45CD960005490C /* AppModules */ = {
 			isa = PBXGroup;
 			children = (
+				8C50874F2A4B801100F8689E /* Frameworks.xcodeproj */,
 				8CADA7D62A45D0D70005490C /* Common.xcodeproj */,
 				8CADA7DF2A45D0DF0005490C /* UICommon.xcodeproj */,
 				8CADA7F12A45D0F30005490C /* User.xcodeproj */,
@@ -411,6 +447,10 @@
 					ProjectRef = 8CADA7D62A45D0D70005490C /* Common.xcodeproj */;
 				},
 				{
+					ProductGroup = 8C5087502A4B801100F8689E /* Products */;
+					ProjectRef = 8C50874F2A4B801100F8689E /* Frameworks.xcodeproj */;
+				},
+				{
 					ProductGroup = 8CADA8042A45D0FD0005490C /* Products */;
 					ProjectRef = 8CADA8032A45D0FD0005490C /* Servers.xcodeproj */;
 				},
@@ -433,6 +473,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		8C5087572A4B801100F8689E /* Frameworks.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Frameworks.framework;
+			remoteRef = 8C5087562A4B801100F8689E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8C5087592A4B801100F8689E /* FrameworksTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = FrameworksTests.xctest;
+			remoteRef = 8C5087582A4B801100F8689E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		8CADA7DC2A45D0D70005490C /* Common.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -524,6 +578,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CADA8302A45DD320005490C /* AppDelegate.swift in Sources */,
+				8C5087732A4B82E000F8689E /* MainView.swift in Sources */,
 				8CADA6EA2A45CD580005490C /* MainView.swift in Sources */,
 				8CADA6E82A45CD580005490C /* ServersListTestApp.swift in Sources */,
 				8CD49CC62A49838F0026F850 /* MainCoordinator.swift in Sources */,

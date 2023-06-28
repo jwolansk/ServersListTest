@@ -10,9 +10,7 @@
 		8C71482B2A45F359007EEDD2 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71482A2A45F359007EEDD2 /* LoginForm.swift */; };
 		8C7148542A46003B007EEDD2 /* LoginFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7148532A46003B007EEDD2 /* LoginFormViewModel.swift */; };
 		8CA7FC162A48E5C700DE9656 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA7FC152A48E5C700DE9656 /* Common.framework */; };
-		8CA7FC172A48E5C700DE9656 /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA7FC152A48E5C700DE9656 /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8CA7FC1A2A48E5CB00DE9656 /* UICommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA7FC192A48E5CB00DE9656 /* UICommon.framework */; };
-		8CA7FC1B2A48E5CB00DE9656 /* UICommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8CA7FC192A48E5CB00DE9656 /* UICommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8CADA7692A45D0AC0005490C /* User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CADA7602A45D0AC0005490C /* User.framework */; };
 		8CADA76E2A45D0AC0005490C /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CADA76D2A45D0AC0005490C /* UserTests.swift */; };
 		8CADA76F2A45D0AC0005490C /* User.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CADA7632A45D0AC0005490C /* User.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -29,21 +27,6 @@
 			remoteInfo = User;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		8CA7FC182A48E5C800DE9656 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8CA7FC172A48E5C700DE9656 /* Common.framework in Embed Frameworks */,
-				8CA7FC1B2A48E5CB00DE9656 /* UICommon.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8C71482A2A45F359007EEDD2 /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
@@ -157,7 +140,6 @@
 				8CADA75C2A45D0AC0005490C /* Sources */,
 				8CADA75D2A45D0AC0005490C /* Frameworks */,
 				8CADA75E2A45D0AC0005490C /* Resources */,
-				8CA7FC182A48E5C800DE9656 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
