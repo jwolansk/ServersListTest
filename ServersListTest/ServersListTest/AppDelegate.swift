@@ -21,15 +21,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
     private func setupApplication() {
         let sessionManager = SLSessionManager()
-        let userCoordinator = UserCoordinator(sessionManager: sessionManager)
-        let mainCoordinator = MainCoordinator(sessionManager: sessionManager)
         let serversDataManager = ServersDataManager(sessionManager: sessionManager)
         let serversCoordinator = ServersCoordinator(sessionManager: sessionManager, dataManager: serversDataManager)
         SLApplication.initialize(with: Config(),
                                  sessionManager: sessionManager,
                                  serversDataManager: serversDataManager,
-                                 viewModelFactory: CompositeViewModelFactory(with: userCoordinator.viewModelFactory +
-                                                                             mainCoordinator.viewModelFactory +
-                                                                             serversCoordinator.viewModelFactory))
+                                 viewModelFactory: CompositeViewModelFactory(with: serversCoordinator.viewModelFactory))
     }
 }

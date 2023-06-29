@@ -18,7 +18,7 @@ public struct LoginFormFeature: ReducerProtocol {
         var error: Bool = false
         var isLoggedIn: Bool = false
 
-        public init(username: String = "", password: String = "", error: Bool = false, isLoggedIn: Bool = false) {
+        public init(username: String = "tesonet", password: String = "partyanimal", error: Bool = false, isLoggedIn: Bool = false) {
             self.username = username
             self.password = password
             self.error = error
@@ -27,7 +27,7 @@ public struct LoginFormFeature: ReducerProtocol {
     }
 
     public enum Action: Equatable {
-        case passwordChanged(String), usernameChanged(String), error(Bool), loggedIn, validate
+        case passwordChanged(String), usernameChanged(String), error(Bool), loggedIn(String), validate
     }
 
     public init() {}
@@ -47,8 +47,12 @@ public struct LoginFormFeature: ReducerProtocol {
             state.isLoggedIn = true
             return .none
         case .validate:
-            // TODO: api call
-            return .none
+            return .run { [state] send in
+                let query = LoginQuery(username: state.username, password: state.password)
+                let data = try await Network.send(with: query)
+                guard let token = data.token else { await send(.error(true)); return }
+                await send(.loggedIn(token))
+            }
         }
     }
 }
@@ -82,3 +86,27 @@ public struct LoginFormView: View {
     }
 }
 
+struct LoginQuery: NetworkQuery {
+    var requiresAuthorization: Bool { false }
+
+    var method: HTTPMethod { .post }
+
+    typealias Result = Token
+
+    var requestPath: String { "tokens"}
+
+    var headers: [String: String] = [:]
+    var parameters: [String: String] = [:]
+
+    init(username: String, password: String) {
+        self.parameters = [
+            "username": username,
+            "password": password
+        ]
+    }
+}
+
+struct Token: Decodable {
+    let token: String?
+    let message: String?
+}

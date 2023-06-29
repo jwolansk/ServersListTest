@@ -27,9 +27,7 @@ struct MainFeature: ReducerProtocol {
     }
 
     var body: some ReducerProtocolOf<Self> {
-        Scope(state: \.loginFormState, action: /Action.loginForm) {
-            LoginFormFeature()
-        }
+
         Reduce<State, Action> { state, action in
             switch action {
             case .dataLoaded:
@@ -45,9 +43,19 @@ struct MainFeature: ReducerProtocol {
                 state.isLoggedInOnStart = false
                 state.isLoggedInByUser = false
                 return .none
-            case .loginForm:
+            case .loginForm(let action):
+                switch action {
+                case .loggedIn(let token):
+                    // TODO: use session state
+                    (SLApplication.sessionManager as? SLSessionManager)?.store(token: token)
+                    return .send(.isLoggedInByUser)
+                default: break
+                }
                 return .none
             }
+        }
+        Scope(state: \.loginFormState, action: /Action.loginForm) {
+            LoginFormFeature()
         }
     }
 }
@@ -68,23 +76,15 @@ struct MainFeatureView: View {
                     .frame(maxWidth: .infinity)
             }
             .ignoresSafeArea()
-            .onAppear() {
-                // check login form needed
-                withAnimation {
-                    showLoginForm = viewStore.isLoggedInOnStart == false
-                }
-            }
             .overlay() {
                 GeometryReader { geometry in
                     ScrollView {
                         VStack(spacing: 40) {
                             Spacer()
-                            if viewStore.isLoggedInByUser == false {
-                                Image("logo")
-                            }
                             if showLoginForm {
+                                Image("logo")
                                 LoginFormView(
-                                    store: self.store.scope(state: \.loginFormState, action: { action in
+                                    store: self.store.scope(state: \.loginFormState, action: { action in // TODO: mapping not used?
                                         switch action {
                                         case .loggedIn:
                                             return .isLoggedInByUser
@@ -110,6 +110,12 @@ struct MainFeatureView: View {
                     }
                 }
                 .ignoresSafeArea(.container)
+                .onReceive(viewStore.publisher.map { $0.isLoggedInByUser }, perform: { isLoggedIn in
+                    // TODO: this does not seem as preferred method, see about store triggered animated changes in view
+                    withAnimation {
+                        showLoginForm = isLoggedIn == false
+                    }
+                })
             }
         })
     }

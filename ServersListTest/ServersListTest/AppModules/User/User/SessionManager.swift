@@ -31,7 +31,4 @@ public class SLSessionManager: SessionManager {
         tokenStorage.clearKeychain()
         isLoggedInSubject.send(false)
     }
-
-    // MARK: keychain storage
-
 }

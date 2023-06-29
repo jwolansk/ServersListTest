@@ -37,6 +37,35 @@ struct NetworkConfiguration {
 
 public class Network<Query: NetworkQuery> {
 
+    public static func send(with query: Query) async throws -> Query.Result {
+        guard NetworkConfiguration.apiBaseUrl.isEmpty == false else { throw URLError(.badURL) }
+
+        guard var components = URLComponents(string: NetworkConfiguration.apiBaseUrl + query.requestPath) else {
+            let msg = "Network, invalid base URL!!! Please set Network.apiBaseUrl first"
+            throw URLError(.badURL)
+        }
+        components.queryItems = query.parameters.map { key, value in
+                URLQueryItem(name: key, value: value)
+        }
+
+        // The server doesn't support parameters in body, requires the components in the url
+        components.percentEncodedQuery = components.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
+        guard let url = components.url else { fatalError("invalid url components") }
+        var request = URLRequest(url: url)
+
+        request.allHTTPHeaderFields = query.headers
+        if let token = SLApplication.sessionManager.token, query.requiresAuthorization {
+            request.allHTTPHeaderFields = query.headers.merging(["Authorization": "Bearer \(token)"]) { (_, new) in new }
+        }
+        request.httpMethod = query.method.rawValue
+
+        print(request.curlString)
+
+        let (data, _) = try await NetworkConfiguration.session.data(for: request)
+        let decoder = JSONDecoder()
+        return try decoder.decode(Query.Result.self, from: data)
+    }
+
     public static func send(with query: Query, completion: @escaping (Query.Result) -> Void) {
 
         guard NetworkConfiguration.apiBaseUrl.isEmpty == false else { return }
