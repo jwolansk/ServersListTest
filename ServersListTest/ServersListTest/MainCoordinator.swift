@@ -13,9 +13,6 @@ public class MainCoordinator: Coordinator {
 
     public init(sessionManager: SessionManager) {
         viewModelFactory = [
-            SingleViewModelFactory {
-                MainViewViewModel(sessionManager: sessionManager)
-            }
         ]
     }
 }

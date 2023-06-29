@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C5087732A4B82E000F8689E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5087722A4B82E000F8689E /* MainView.swift */; };
+		8C5087732A4B82E000F8689E /* MainFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5087722A4B82E000F8689E /* MainFeature.swift */; };
+		8C5087742A4C385A00F8689E /* Frameworks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5087572A4B801100F8689E /* Frameworks.framework */; };
+		8C5087752A4C385A00F8689E /* Frameworks.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5087572A4B801100F8689E /* Frameworks.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8C7148282A45ED65007EEDD2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C7148272A45ED65007EEDD2 /* Launch Screen.storyboard */; };
+		8C71F8A62A4C603300715458 /* LoginFormFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71F89B2A4C603200715458 /* LoginFormFeature.swift */; };
 		8CADA6E82A45CD580005490C /* ServersListTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CADA6E72A45CD580005490C /* ServersListTestApp.swift */; };
 		8CADA6EA2A45CD580005490C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CADA6E92A45CD580005490C /* MainView.swift */; };
 		8CADA6EC2A45CD5A0005490C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CADA6EB2A45CD5A0005490C /* Assets.xcassets */; };
@@ -129,6 +132,7 @@
 				8CADA81F2A45D3230005490C /* Common.framework in Embed Frameworks */,
 				8CADA8222A45D3270005490C /* UICommon.framework in Embed Frameworks */,
 				8CADA8262A45D32F0005490C /* Servers.framework in Embed Frameworks */,
+				8C5087752A4C385A00F8689E /* Frameworks.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,8 +141,9 @@
 
 /* Begin PBXFileReference section */
 		8C50874F2A4B801100F8689E /* Frameworks.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Frameworks.xcodeproj; path = Frameworks/Frameworks.xcodeproj; sourceTree = "<group>"; };
-		8C5087722A4B82E000F8689E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		8C5087722A4B82E000F8689E /* MainFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeature.swift; sourceTree = "<group>"; };
 		8C7148272A45ED65007EEDD2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		8C71F89B2A4C603200715458 /* LoginFormFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFormFeature.swift; sourceTree = "<group>"; };
 		8CADA6E42A45CD580005490C /* ServersListTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServersListTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CADA6E72A45CD580005490C /* ServersListTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersListTestApp.swift; sourceTree = "<group>"; };
 		8CADA6E92A45CD580005490C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -169,6 +174,7 @@
 				8CADA81E2A45D3230005490C /* Common.framework in Frameworks */,
 				8CADA8212A45D3270005490C /* UICommon.framework in Frameworks */,
 				8CADA8252A45D32F0005490C /* Servers.framework in Frameworks */,
+				8C5087742A4C385A00F8689E /* Frameworks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +207,8 @@
 		8C5087712A4B82D300F8689E /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				8C5087722A4B82E000F8689E /* MainView.swift */,
+				8C71F89B2A4C603200715458 /* LoginFormFeature.swift */,
+				8C5087722A4B82E000F8689E /* MainFeature.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -578,7 +585,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CADA8302A45DD320005490C /* AppDelegate.swift in Sources */,
-				8C5087732A4B82E000F8689E /* MainView.swift in Sources */,
+				8C5087732A4B82E000F8689E /* MainFeature.swift in Sources */,
+				8C71F8A62A4C603300715458 /* LoginFormFeature.swift in Sources */,
 				8CADA6EA2A45CD580005490C /* MainView.swift in Sources */,
 				8CADA6E82A45CD580005490C /* ServersListTestApp.swift in Sources */,
 				8CD49CC62A49838F0026F850 /* MainCoordinator.swift in Sources */,

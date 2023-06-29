@@ -30,9 +30,9 @@ class NavigationCoordinator {
 
     @ViewBuilder
     var rootView: some View {
-        if let viewModel: MainViewViewModel = SLApplication.viewModelFactory.create() {
-            MainView(viewModel: viewModel)
-        }
+//        if let viewModel: MainViewViewModel = SLApplication.viewModelFactory.create() {
+//            MainView(viewModel: viewModel)
+//        }
         EmptyView()
     }
 }

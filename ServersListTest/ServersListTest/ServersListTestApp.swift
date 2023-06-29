@@ -6,6 +6,7 @@
 //
 
 import Common
+import ComposableArchitecture
 import SwiftUI
 
 @main
@@ -14,7 +15,11 @@ struct ServersListTestApp: App {
 
     var body: some Scene {
         WindowGroup {
-            NavigationCoordinator.rootNavigationView
+            MainFeatureView(
+                store: Store(initialState: MainFeature.State()) {
+                    MainFeature()
+                }
+            )
         }
     }
 }
